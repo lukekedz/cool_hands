@@ -1,0 +1,13 @@
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+@import 'materialize';
+
+html {
+  background: url(image_server()) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

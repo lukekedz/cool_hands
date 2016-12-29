@@ -1,5 +1,1 @@
-Base "image" of RoR project... using:
-Devise
-simple_form
-MaterializeCSS
-custom rakescript for easy migrations
+In the spirit of Kaizen, cool_hands is an application for tracking piano practice!
