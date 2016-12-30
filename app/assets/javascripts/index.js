@@ -1,35 +1,33 @@
 $(document).ready(function() {
-  console.log("anyong");
 
-  clickable = function() {
-    console.log("anyong2");
+  clickable = function(event, blockId) {
+    console.log(event);
+    console.log(blockId);
+    var id = event.target.id;
+
+    if (document.getElementById(id).className === 'day') {
+        document.getElementById(id).className = 'green';
+
+      $.ajax({
+          type: "POST",
+          url: "/site/practiced",
+          data: { "block_id": blockId, "practiced": true },
+          success: function(data){
+            console.log(data);
+          }
+      });
+    } else {
+        document.getElementById(id).className = 'day';
+
+        $.ajax({
+            type: "POST",
+            url: "/site/practiced",
+            data: { "block_id": blockId, "practiced": false },
+            success: function(data){
+              console.log(data);
+            }
+        });
+    }
   }
 
-  // setTimeout(function(){
-  //   var dateTime = new Date();
-  //   var year = dateTime.getFullYear();
-  //   var month = dateTime.getMonth();
-  //   var localeOf1st = new Date(year, month, 1).getDay();
-
-  //   var monthStart = new Date(year, month, 1);
-  //   var monthEnd = new Date(year, month + 1, 1);
-  //   var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
-
-  //   var week_row = 0
-  //   var date = 1
-
-  //   while (week_row <= 5) {
-  //     while (localeOf1st <= 6) {
-  //       if (date <= monthLength) {
-  //         var id = week_row + "-" + localeOf1st;
-  //         document.getElementById(id).getElementsByTagName('div')[0].innerHTML = date;
-  //       }
-  //       localeOf1st ++;
-  //       date ++;
-  //     }
-
-  //     localeOf1st = 0;
-  //     week_row ++;
-  //   }
-  // }, 1000);
 });

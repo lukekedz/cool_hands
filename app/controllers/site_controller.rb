@@ -4,6 +4,14 @@ class SiteController < ApplicationController
 
   def index
     @months = Month.all.reverse
+    @days   = Day.where(month_id: 1).order(:id)
+  end
+
+  def practiced
+    Day.update(params[:block_id], practiced: params[:practiced])
+
+    data = {:message => "POST practiced"}
+    render :json => data, :status => :ok
   end
 
 end

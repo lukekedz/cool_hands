@@ -63,6 +63,28 @@
   vertical-align: top;
 }
 
+.date {
+  float: right;
+  margin-right: 15%;
+  margin-top: 10%;
+  font-weight: bold;
+}
+
+.green {
+  border: 1px grey solid;
+
+  width: 13.25%;
+  height: 100px;
+
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: top;
+
+  background-color: #228B22;
+  color: white;
+}
+
 .practice-hours {
   border: 1px green solid;
 
