@@ -1,3 +1,7 @@
+a:link, a:visited, a:hover {
+    text-decoration: none;
+}
+
 .header {
   border: 1px blue dotted;
 
