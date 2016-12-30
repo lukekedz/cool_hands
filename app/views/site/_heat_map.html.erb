@@ -1,15 +1,18 @@
+<h3><%= @current_month.name %></h3>
+<br/>
+
 <% @days.last.row.times do |wk| %>
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
-
       <div class="<%= day.practiced == true ? 'green' : 'day' %>"
            id="<%= wk.to_s + '-' + day.block.to_s %>"
-           onclick="<%= if day.clickable then 'clickable(event,' + day.id.to_s + ')' end %>"
+           onclick="<% if day.clickable %>
+                    <%= 'clickable(event,' + day.id.to_s + ',' + day.practiced.to_s + ')' %>
+                    <% end %>"
       >
         <div class="date"><%= day.date.to_s[-2..-1] %></div>
       </div>
-
     <% end %>
 
   </div>

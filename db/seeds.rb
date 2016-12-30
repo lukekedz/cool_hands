@@ -45,12 +45,4 @@ date_day = 1
     )
   end
 
-
-  # if block < 6
-    # block += 1
-  # else
-    # block = 0
-    # row += 1
-  # end
-
 end
