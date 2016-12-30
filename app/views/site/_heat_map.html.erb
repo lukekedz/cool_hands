@@ -1,0 +1,9 @@
+<% 6.times do |wk| %>
+  <div class="week">
+    <% 7.times do |day| %>
+      <div class="day" onclick="clickable()">
+        <%= wk %> - <%= day %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
