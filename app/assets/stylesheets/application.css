@@ -1,0 +1,89 @@
+.header {
+  border: 1px blue dotted;
+
+  display: block;
+  width: 100%;
+}
+
+.container {
+  border: 5px orange solid;
+
+  display: block;
+  width: 90%;
+  margin: auto;
+
+  height: 800px;
+
+  /*position: absolute;*/
+  top: 5%;
+  right: 0;
+  bottom: 5%;
+  left: 0;
+}
+
+.heat-map {
+  border: 2px purple solid;
+
+  float: left;
+
+  display: inline-block;
+  width: 80%;
+
+  height: 700px;
+
+}
+
+.side-bar {
+  border: 5px yellow solid;
+
+  /*position: relative;*/
+  float: right;
+
+  display: inline-block;
+  width: 17.5%;
+
+  height: 700px;
+
+
+}
+
+.week {
+
+}
+
+.day {
+  border: 1px grey solid;
+
+  width: 13.25%;
+  height: 100px;
+
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+.practice-hours {
+  border: 1px green solid;
+
+  display: block;
+  width: 100%;
+}
+
+.month-navigator {
+  border: 1px red solid;
+
+  display: block;
+  width: 100%;
+}
+
+.footer {
+  border: 1px blue dotted;
+
+  position: relative;
+
+  display: block;
+  width: 100%;
+
+  text-align: center;
+}
