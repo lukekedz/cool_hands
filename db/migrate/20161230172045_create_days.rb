@@ -9,6 +9,7 @@ class CreateDays < ActiveRecord::Migration
       t.integer    :practiced, null: false
       t.integer    :minutes
       t.integer    :streak
+      t.string     :color
 
       t.timestamps null: false
     end

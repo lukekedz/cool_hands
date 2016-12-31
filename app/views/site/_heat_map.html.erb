@@ -6,12 +6,14 @@
 
     <% @days.where(row: wk).each do |day| %>
       <div class="<%= day.practiced == 1 ? 'green' : 'day' %>"
+           style="background-color: <%= day.color %>"
            id="<%= wk.to_s + '-' + day.block.to_s %>"
            onclick="<% if day.clickable %>
                     <%= 'clickable(event,' + day.id.to_s + ')' %>
                     <% end %>"
       >
         <div class="practiced" style="display: none"><%= day.practiced %></div>
+        <div class="streak"    style="display: none"><%= day.streak %></div>
         <div class="date"><%= day.date.to_s[-2..-1] %></div>
         <div class="minutes"><%= if day.minutes then day.minutes.to_s + ' mins' end %></div>
       </div>
