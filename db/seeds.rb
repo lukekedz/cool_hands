@@ -9,9 +9,9 @@ User.create!(email: "luke@dev.com", password: "loplop", password_confirmation: "
 # Month.create(name: month.strftime("%B"), length: month_length)
 
 # January
-# month = Date.new(2017, 1, 1)
-# month_length = Date.new(2017, 1, -1).day
-# Month.create(name: month.strftime("%B"), length: month_length)
+month = Date.new(2017, 1, 1)
+month_length = Date.new(2017, 1, -1).day
+Month.create(name: month.strftime("%B"), length: month_length)
 
 # February
 # month = Date.new(2017, 2, 1)
@@ -19,9 +19,9 @@ User.create!(email: "luke@dev.com", password: "loplop", password_confirmation: "
 # Month.create(name: month.strftime("%B"), length: month_length)
 
 # March
-month = Date.new(2017, 3, 1)
-month_length = Date.new(2017, 3, -1).day
-Month.create(name: month.strftime("%B"), length: month_length)
+# month = Date.new(2017, 3, 1)
+# month_length = Date.new(2017, 3, -1).day
+# Month.create(name: month.strftime("%B"), length: month_length)
 
 row   = 0
 # numbered day of week, ie Sun 0, Mon 1
