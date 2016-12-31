@@ -37,7 +37,7 @@ date_day = 1
       block:     block,
       clickable: true,
       practiced: 0,
-      date:      Date.new(2017, 3, date_day)
+      date:      Date.new(2017, 1, date_day)
     )
 
     date_day += 1
