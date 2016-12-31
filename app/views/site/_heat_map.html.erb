@@ -1,7 +1,7 @@
 <h3><%= @current_month.name %></h3>
 <br/>
 
-<% @days.last.row.times do |wk| %>
+<% @week_rows.times do |wk| %>
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
