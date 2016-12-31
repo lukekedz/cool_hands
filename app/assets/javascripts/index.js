@@ -13,6 +13,7 @@ $(document).ready(function() {
     if (day.childNodes[1].innerHTML === "0") {
       mins = prompt("Enter practice time (in minutes):");
     }
+    console.log(mins);
 
     if (day.className === 'day') {
         day.className = 'green';
@@ -23,9 +24,12 @@ $(document).ready(function() {
           data: { "block_id": blockId, "practiced": 1, "minutes": mins },
           success: function(data){
             // console.log(data);
-            day.childNodes[5].innerHTML = mins + " mins";
+            if (mins != "") {
+              day.childNodes[5].innerHTML = mins + " mins";
+            } else {
+              day.childNodes[5].innerHTML = "";
+            }
             day.childNodes[1].innerHTML = "1";
-
           }
       });
     } else {
@@ -39,8 +43,6 @@ $(document).ready(function() {
               // console.log(data);
               day.childNodes[5].innerHTML = "";
               day.childNodes[1].innerHTML = "0";
-
-
             }
         });
     }
