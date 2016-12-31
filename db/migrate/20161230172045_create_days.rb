@@ -4,9 +4,9 @@ class CreateDays < ActiveRecord::Migration
       t.belongs_to :month,     null: false
       t.integer    :row,       null: false
       t.integer    :block,     null: false
-      t.boolean    :clickable, null: false
       t.date       :date
-      t.boolean    :practiced, null: false
+      t.boolean    :clickable, null: false
+      t.integer    :practiced, null: false
       t.integer    :minutes
       t.integer    :streak
 

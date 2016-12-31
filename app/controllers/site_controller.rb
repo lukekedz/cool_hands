@@ -4,8 +4,8 @@ class SiteController < ApplicationController
 
   def index
     @months = Month.all.reverse
-    @current_month = Month.find(1)
-    @days   = Day.where(month_id: 1).order(:id)
+    @current_month = Month.last
+    @days   = Day.where(month_id: @current_month.id).order(:id)
   end
 
   def practiced

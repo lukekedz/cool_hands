@@ -5,13 +5,15 @@
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
-      <div class="<%= day.practiced == true ? 'green' : 'day' %>"
+      <div class="<%= day.practiced == 1 ? 'green' : 'day' %>"
            id="<%= wk.to_s + '-' + day.block.to_s %>"
            onclick="<% if day.clickable %>
-                    <%= 'clickable(event,' + day.id.to_s + ',' + day.practiced.to_s + ')' %>
+                    <%= 'clickable(event,' + day.id.to_s + ')' %>
                     <% end %>"
       >
+        <div class="practiced" style="display: none"><%= day.practiced %></div>
         <div class="date"><%= day.date.to_s[-2..-1] %></div>
+        <div class="minutes"><%= if day.minutes then day.minutes.to_s + ' mins' end %></div>
       </div>
     <% end %>
 

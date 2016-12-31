@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20161230172045) do
     t.integer  "month_id",   null: false
     t.integer  "row",        null: false
     t.integer  "block",      null: false
-    t.boolean  "clickable",  null: false
     t.date     "date"
-    t.boolean  "practiced",  null: false
+    t.boolean  "clickable",  null: false
+    t.integer  "practiced",  null: false
     t.integer  "minutes"
     t.integer  "streak"
     t.datetime "created_at", null: false
