@@ -1,15 +1,12 @@
 puts "Seeding DB..."
+puts
 
 User.create!(email: "luke@dev.com", password: "loplop", password_confirmation: "loplop")
 
 dec = Date.new(2016, 12, 1)
 dec_length = Date.new(2016, 12, -1).day
 
-jan = Date.new(2017, 1, 1)
-jan_length = Date.new(2017, 1, -1).day
-
 Month.create(name: dec.strftime("%B"), length: dec_length)
-Month.create(name: jan.strftime("%B"), length: jan_length)
 
 row   = 0
 block = dec.strftime("%w").to_i
@@ -23,7 +20,7 @@ date_day = 1
       row:       row,
       block:     block,
       clickable: true,
-      practiced: false,
+      practiced: 0,
       date:      Date.new(2016, 12, date_day)
     )
 
@@ -41,7 +38,7 @@ date_day = 1
       row:       row,
       block:     i,
       clickable: false,
-      practiced: false
+      practiced: 0
     )
   end
 

@@ -74,6 +74,13 @@ a:link, a:visited, a:hover {
   font-weight: bold;
 }
 
+.minutes {
+  font-style: italic;
+  float: left;
+  margin-left: 15%;
+  margin-top: 50%;
+}
+
 .green {
   border: 1px grey solid;
 
