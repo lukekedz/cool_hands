@@ -1,6 +1,6 @@
 class SiteController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:practiced]
 
   def index
     @months = Month.all.reverse
