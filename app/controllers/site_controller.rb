@@ -16,22 +16,26 @@ class SiteController < ApplicationController
     prev_day = Day.find(params[:block_id].to_i - 1)
 
     streak = 1
-    if prev_day.streak != nil
-      streak = prev_day.streak.to_i + 1
-      if streak >= 9
-        streak = 9
+    if prev_day
+      if prev_day.streak != nil
+        streak = prev_day.streak.to_i + 1
+        if streak >= 9
+          streak = 9
+        end
+        color = saturation[streak]
       end
-      color = saturation[streak]
     end
 
     Day.update(params[:block_id], practiced: params[:practiced], streak: streak, minutes: params[:minutes], color: color)
 
     # TODO: implement streak "clear"
     # TODO: implement robust streak total
-    prev_day_id = prev_day.id
-    while Day.find(prev_day_id).streak != nil
-      Day.update(prev_day_id, streak: streak, color: color)
-      prev_day_id = prev_day_id - 1
+    if prev_day
+      prev_day_id = prev_day.id
+      while Day.find(prev_day_id).streak != nil
+        Day.update(prev_day_id, streak: streak, color: color)
+        prev_day_id = prev_day_id - 1
+      end
     end
 
     # data = {:message => "POST practiced"}
