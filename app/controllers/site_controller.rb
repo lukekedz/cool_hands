@@ -10,33 +10,31 @@ class SiteController < ApplicationController
   end
 
   def practiced
-    saturation = [ "#ffe6e6", "#ffcccc", "#ffb3b3", "#ff9999", "#ff8080", "#ff6666", "#ff4d4d", "#ff3333", "#ff1a1a", "#ff0000" ]
-    color = ""
+    saturation = [ "", "#e6e6ff", "#ccccff", "#b3b3ff", "#9999ff", "#8080ff", "#6666ff", "#4d4dff", "#3333ff", "#1a1aff", "#0000ff", "#0000e6" ]
+    color = saturation[1]
 
     prev_day = Day.find(params[:block_id].to_i - 1)
 
     streak = 1
-    if prev_day
-      if prev_day.streak != nil
-        streak = prev_day.streak.to_i + 1
-        if streak >= 9
-          streak = 9
-        end
-        color = saturation[streak]
+    if prev_day.streak != nil
+      streak = prev_day.streak.to_i + 1
+      if streak >= 11
+        streak = 11
       end
+      color = saturation[streak]
     end
 
     Day.update(params[:block_id], practiced: params[:practiced], streak: streak, minutes: params[:minutes], color: color)
 
     # TODO: implement streak "clear"
     # TODO: implement robust streak total
-    if prev_day
-      prev_day_id = prev_day.id
-      while Day.find(prev_day_id).streak != nil
-        Day.update(prev_day_id, streak: streak, color: color)
-        prev_day_id = prev_day_id - 1
-      end
-    end
+    # if prev_day
+    #   prev_day_id = prev_day.id
+    #   while Day.find(prev_day_id).streak != nil
+    #     Day.update(prev_day_id, streak: streak, color: color)
+    #     prev_day_id = prev_day_id - 1
+    #   end
+    # end
 
     # data = {:message => "POST practiced"}
     # render :json => data, :status => :ok
