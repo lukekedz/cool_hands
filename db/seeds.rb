@@ -12,7 +12,7 @@ Day.create(
   row:       -1,
   block:     -1,
   clickable: false,
-  practiced: 0
+  practiced: 0,
 )
 
 row = 0
@@ -24,12 +24,14 @@ date_day = 1
 
   if i >= block && date_day <= month_length
     Day.create(
-      month_id: 1,
-      row:       row,
-      block:     block,
-      clickable: true,
-      practiced: 0,
-      date:      Date.new(2017, 1, date_day)
+      month_id:   1,
+      row:        row,
+      block:      block,
+      clickable:  true,
+      practiced:  0,
+      date:       Date.new(2017, 1, date_day),
+      color:      "transparent",
+      text_color: "black"
     )
 
     date_day += 1
@@ -46,7 +48,8 @@ date_day = 1
       row:       row,
       block:     (date_day > month_length ? block : i),
       clickable: false,
-      practiced: 0
+      practiced: 0,
+      color:     "transparent"
     )
 
     if date_day > month_length

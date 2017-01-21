@@ -11,23 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105001730) do
+ActiveRecord::Schema.define(version: 20170106214540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "days", force: :cascade do |t|
-    t.integer  "month_id",   null: false
-    t.integer  "row",        null: false
-    t.integer  "block",      null: false
+    t.integer  "month_id",                             null: false
+    t.integer  "row",                                  null: false
+    t.integer  "block",                                null: false
     t.date     "date"
-    t.boolean  "clickable",  null: false
-    t.integer  "practiced",  null: false
+    t.boolean  "clickable",                            null: false
+    t.integer  "practiced",                            null: false
     t.integer  "minutes"
     t.integer  "streak"
     t.string   "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.decimal  "transparency", precision: 2, scale: 2
+    t.string   "text_color"
   end
 
   create_table "months", force: :cascade do |t|
