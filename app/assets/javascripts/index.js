@@ -1,56 +1,50 @@
 $(document).ready(function() {
 
-  // saturation = [ "#ffe6e6", "#ffcccc", "#ffb3b3", "#ff9999", "#ff8080", "#ff6666", "#ff4d4d", "#ff3333", "#ff1a1a", "#ff0000" ]
+  // https://daneden.github.io/animate.css/
+  var animations = [ "flip", "flipInX", "flipInY" ]
 
-  // color = function(streak) {
-  //   return "background-color: " + saturation[streak];
-  // }
+  practiced = function(event, dayId) {
 
-  clickable = function(event, blockId) {
-    // console.log(event);
-    // console.log(blockId);
+    var day = document.getElementById(event.target.id);
+    var id  = "#" + event.target.id;
+    // console.log(day.childNodes);
 
-    var id   = event.target.id;
-    var mins = 0;
-    var day = document.getElementById(id);
-    // var practiced = day.childNodes[1];
-    // console.log(practiced);
+    var practiced = day.childNodes[1];
+    var minutes   = day.childNodes[7];
 
-    if (day.childNodes[1].innerHTML === "0") {
-      mins = prompt("Enter practice time (in minutes):");
-    }
-    // console.log(mins);
-
-    if (day.className === 'day') {
-        day.className = 'green';
+    if (practiced.innerHTML === "0") {
+      var minsPracticed = prompt("Enter practice time (in minutes):");
 
       $.ajax({
           type: "POST",
           url: "/site/practiced",
-          data: { "block_id": blockId, "practiced": 1, "minutes": mins },
-          // success: function(data){
-            // console.log(data);
-            // if (mins != "") {
-              // day.childNodes[7].innerHTML = mins + " mins";
-            // } else {
-              // day.childNodes[7].innerHTML = "";
-            // }
-            // day.childNodes[1].innerHTML = "1";
-          // }
+          data: { "day_id": dayId, "practiced": 1, "minutes": minsPracticed },
+          success: function(data){
+            var randoAni = "animated " + animations[Math.floor((Math.random() * 3))];
+            $(id).addClass(randoAni);
+            // $(id).addClass("animated zoomIn");
+
+            day.style.backgroundColor = data.color;
+            practiced.innerHTML = "1";
+            minutes.innerHTML   = minsPracticed + " mins";
+
+          }
       });
     } else {
-        day.className = 'day';
 
-        $.ajax({
-            type: "POST",
-            url: "/site/practiced",
-            data: { "block_id": blockId, "practiced": 0, "minutes": null },
-            // success: function(data){
-            //   // console.log(data);
-            //   day.childNodes[7].innerHTML = "";
-            //   day.childNodes[1].innerHTML = "0";
-            // }
-        });
+      $.ajax({
+          type: "POST",
+          url: "/site/practiced",
+          data: { "day_id": dayId, "practiced": 0 },
+          success: function(data){
+            $(id).addClass("animated zoomIn");
+
+            day.style.backgroundColor = "transparent";
+            practiced.innerHTML = "0";
+            minutes.innerHTML   = "";
+
+          }
+      });
     }
   }
 

@@ -6,15 +6,53 @@ a:link, a:visited, a:hover {
     text-decoration: none;
 }
 
-.header {
-  border: 1px blue dotted;
+/* http://www.w3schools.com/css/css3_gradients.asp */
+/* .header */
+html {
 
-  display: block;
-  width: 100%;
+  background: red;
+  background: -webkit-linear-gradient(-90deg, red, orange, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-90deg, red, orange, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-90deg, red, orange, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-90deg, red, orange, yellow); /* Standard syntax */
+
+  /* for browsers that do not support gradients */
+  background: rgba(0, 102, 204, 1.0);
+  /* for Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(-90deg, rgba(0, 102, 204, 1.0),
+                                              rgba(0, 102, 204, 0.8),
+                                              rgba(0, 102, 204, 0.6),
+                                              rgba(0, 102, 204, 0.4),
+                                              rgba(0, 102, 204, 0.2));
+  /* for Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(-90deg, rgba(0, 102, 204, 1.0),
+                                         rgba(0, 102, 204, 0.8),
+                                         rgba(0, 102, 204, 0.6),
+                                         rgba(0, 102, 204, 0.4),
+                                         rgba(0, 102, 204, 0.2));
+  /* for Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(-90deg, rgba(0, 102, 204, 1.0),
+                                           rgba(0, 102, 204, 0.8),
+                                           rgba(0, 102, 204, 0.6),
+                                           rgba(0, 102, 204, 0.4),
+                                           rgba(0, 102, 204, 0.2));
+  /* for standard syntax */
+  background: linear-gradient(-90deg, rgba(0, 102, 204, 1.0),
+                                      rgba(0, 102, 204, 0.8),
+                                      rgba(0, 102, 204, 0.6),
+                                      rgba(0, 102, 204, 0.4),
+                                      rgba(0, 102, 204, 0.2));
+}
+
+.header h2 {
+  /*padding-top: 0.5%;*/
+  padding-bottom: 1%;
+  text-indent: 2.5%;
+  color: rgba(0, 102, 204, 1.0);
 }
 
 .container {
-  border: 5px orange solid;
+  /*border: 5px orange solid;*/
 
   display: block;
   width: 90%;
@@ -30,7 +68,10 @@ a:link, a:visited, a:hover {
 }
 
 .heat-map {
-  border: 2px purple solid;
+  /*border: 2px purple solid;*/
+
+  box-shadow: 0 0 5px 10px rgba(0, 102, 204, 0.2);
+  background-color: #f9f9f9;
 
   float: left;
 
@@ -41,8 +82,12 @@ a:link, a:visited, a:hover {
 
 }
 
+.month-name {
+  text-indent: 2.5%;
+}
+
 .side-bar {
-  border: 5px yellow solid;
+  /*border: 5px yellow solid;*/
 
   /*position: relative;*/
   float: right;
@@ -56,13 +101,21 @@ a:link, a:visited, a:hover {
 }
 
 .week {
-
+  margin-left: 5%;
 }
 
+/* http://www.cssmatic.com/es/border-radius */
 .day {
-  border: 1px grey solid;
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid #000000;
+  box-shadow: 5px 5px 2.5px #888888;
 
-  width: 13.25%;
+  margin-right: 1px;
+  margin-bottom: 15px;
+
+  width: 12.25%;
   height: 100px;
 
   display: inline-block;
@@ -85,37 +138,22 @@ a:link, a:visited, a:hover {
   margin-top: 50%;
 }
 
-.green {
-  border: 1px grey solid;
-
-  width: 13.25%;
-  height: 100px;
-
-  display: inline-block;
-
-  text-align: center;
-  vertical-align: top;
-
-  background-color: #228B22;
-  color: white;
-}
-
 .practice-hours {
-  border: 1px green solid;
+  /*border: 1px green solid;*/
 
   display: block;
   width: 100%;
 }
 
 .month-navigator {
-  border: 1px red solid;
+  /*border: 1px red solid;*/
 
   display: block;
   width: 100%;
 }
 
 .footer {
-  border: 1px blue dotted;
+  /*border: 1px blue dotted;*/
 
   position: relative;
 

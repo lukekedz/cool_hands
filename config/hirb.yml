@@ -1,0 +1,17 @@
+:output:
+    Day:
+        :options:
+            :fields:
+              - id
+              - month_id
+              - row
+              - block
+              - date
+              - clickable
+              - practiced
+              - minutes
+              - streak
+              - color
+              - transparency
+              - text_color
+              - updated_at

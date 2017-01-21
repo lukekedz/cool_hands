@@ -1,15 +1,15 @@
-<h3><%= @current_month.name %></h3>
+<h3 class="month-name"><%= @current_month.name %></h3>
 <br/>
 
 <% @week_rows.times do |wk| %>
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
-      <div class="<%= day.practiced == 1 ? 'green' : 'day' %>"
-           style="background-color: <%= day.color %>"
+      <div class="day"
+           style="background-color: <%= day.color %>; opacity: <%= day.transparency %>;"
            id="<%= wk.to_s + '-' + day.block.to_s %>"
            onclick="<% if day.clickable %>
-                    <%= 'clickable(event,' + day.id.to_s + ')' %>
+                    <%= 'practiced(event,' + day.id.to_s + ')' %>
                     <% end %>"
       >
         <div class="practiced" style="display: none"><%= day.practiced %></div>
