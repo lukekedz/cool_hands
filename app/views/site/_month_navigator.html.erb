@@ -1,7 +1,7 @@
 <div class="month-navigator">
   <ul>
     <% @months.each do |m| %>
-      <li><%= m.name %></li>
+      <li><%= link_to m.name, root_path(:id => m.id) %></li>
     <% end %>
   </ul>
 </div>

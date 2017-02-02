@@ -1,10 +1,14 @@
 puts "Seeding DB..."
 puts
 
+# User.create(username: "lukekedz", email: "luke@dev.com", password: "loplop", password_confirmation: "loplop")
+
+# doubles for creation method in controller when 1st of month
+
 # January
 month = Date.new(2017, 1, 1)
 month_length = Date.new(2017, 1, -1).day
-Month.create(name: month.strftime("%B"), length: month_length)
+Month.create(name: month.strftime("%B"), length: month_length, yyyymm: "201701")
 
 # initial day for edge case on 1/1 streak counting
 Day.create(
