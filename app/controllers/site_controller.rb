@@ -153,6 +153,7 @@ class SiteController < ApplicationController
           streak = 11
         end
         color = saturation[streak]
+        transparency = 0.9
 
         # yel-org-red hash
         # if streak >= 15
@@ -167,8 +168,7 @@ class SiteController < ApplicationController
                   streak:       streak,
                   minutes:      params[:minutes],
                   color:        color,
-                  # yel-org-red hash
-                  # transparency: transparency
+                  transparency: transparency
                 )
     else
       # TODO: recalculate streak if somehow broken
