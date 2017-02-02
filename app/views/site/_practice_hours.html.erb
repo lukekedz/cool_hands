@@ -1,9 +1,18 @@
 <div class="practice-hours">
   Practice Hours Countdown
   <br>
-  GOAL: 200 hrs
+  2017 GOAL: 200 hrs
   <br>
-  MINS PRACTICED:
+  PRACTICED: <%= @hrs %> hrs
   <br>
-  MINS REMAINING:
+  REMAINING: <%= 200 - @hrs %> hrs
+  <br>
+  <br>
+  <h4 class="month-name"><%= @current_month.name %> Summary</h4>
+  Total Minutes: <%= @mms %>
+  <br>
+  in Hours: <%= (@mms.to_i / 60).round(2) %>
+  <br>
+  <br>
+  <h4 class="month-name">Navigate</h4>
 </div>

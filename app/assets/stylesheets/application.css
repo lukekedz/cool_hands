@@ -4,6 +4,16 @@ html {
 
 a:link, a:visited, a:hover {
     text-decoration: none;
+    color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 1%;
 }
 
 /* http://www.w3schools.com/css/css3_gradients.asp */
@@ -143,6 +153,7 @@ html {
 
   display: block;
   width: 100%;
+  color: white;
 }
 
 .month-navigator {

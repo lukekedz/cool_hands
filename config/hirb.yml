@@ -1,4 +1,14 @@
 :output:
+    Month:
+      :options:
+        :fields:
+          - id
+          - yyyymm
+          - name
+          - length
+          - updated_at
+          - created_at
+
     Day:
         :options:
             :fields:
