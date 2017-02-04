@@ -142,11 +142,18 @@ class SiteController < ApplicationController
       # color = (saturation[1].keys)[0].to_s
       # transparency = saturation[1][color]
 
-      prev_day = Day.find(params[:day_id].to_i - 1)
+      # picks up streak where last left,
+      # ie it will ignore empty blocks from a new month start / old month finish
+      prev_day = []
+      i = 1
+      until prev_day.empty? != true
+        prev_day = Day.where(id: params[:day_id].to_i - i, clickable: true)
+        i += 1
+      end
 
       streak = 1
-      if prev_day.streak != nil
-        streak = prev_day.streak.to_i + 1
+      if prev_day[0].streak != nil
+        streak = prev_day[0].streak.to_i + 1
 
         # blue
         if streak >= 11
