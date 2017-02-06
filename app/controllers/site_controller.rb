@@ -13,7 +13,7 @@ class SiteController < ApplicationController
 
       Month.create(name: time.strftime("%B"), length: month_length, yyyymm: yyyymm)
 
-      populate_new_month(time, month_length)
+      populate_new_month(month_length)
     end
 
     @current_month = params[:id] ? Month.find(params[:id]) : Month.last
@@ -74,10 +74,11 @@ class SiteController < ApplicationController
     end
   end
 
-  def populate_new_month(time, month_length)
+  def populate_new_month(month_length)
     row = 0
     # numbered day of week, ie Sun 0, Mon 1
-    block = time.strftime("%w").to_i
+    # TODO: verify correct month creation on March 1st!
+    block = Date.new(Time.new.year, Time.new.month, 1).strftime("%w").to_i
     date_day = 1
 
     42.times do |i|
