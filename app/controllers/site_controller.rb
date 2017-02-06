@@ -193,19 +193,49 @@ class SiteController < ApplicationController
   end
 
   def iot
-    @iot = "anyong"
-  end
-
-  def ioted
     # TODO: error handling, notification, edge cases
-
     day = Day.where(date: Time.now.to_s[0..9])
+
+    saturation = [ "", "#e6e6ff", "#ccccff", "#b3b3ff", "#9999ff", "#8080ff", "#6666ff", "#4d4dff", "#3333ff", "#1a1aff", "#0000ff", "#0000e6" ]
+    color = saturation[1]
+
+    prev_day = []
+    i = 1
+    until prev_day.empty? != true
+      prev_day = Day.where(id: day[0].id.to_i - i, clickable: true)
+      i += 1
+    end
+
+    streak = 1
+    if prev_day[0].streak != nil
+      streak = prev_day[0].streak.to_i + 1
+
+      # blue
+      if streak >= 11
+        streak = 11
+      end
+
+      color = saturation[streak]
+      transparency = 0.9
+    end
+
+    puts "TIME NOW: " + Time.now.to_s[0..9].inspect
+    puts "TIME DAY: " + day[0].date.inspect
+    puts "MINUTES: " + day[0].minutes.inspect
 
     if day[0].minutes == nil
       Day.update(day[0].id, minutes: 0)
     else
       practiced = ((Time.now - day[0].updated_at) / 60).round
-      Day.update(day[0].id, minutes: practiced)
+
+      # TODO: need color code, saturation, etc.
+      Day.update(day[0].id,
+                  minutes:      practiced,
+                  practiced:    1,
+                  streak:       streak,
+                  color:        color,
+                  transparency: transparency
+                )
     end
 
     redirect_to root_path
