@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   before_action :authenticate_user!, only: [:practiced]
 
   def index
@@ -190,6 +190,25 @@ class SiteController < ApplicationController
 
     data = {:message => "POST practiced", :color => color}
     render :json => data, :status => :ok
+  end
+
+  def iot
+    @iot = "anyong"
+  end
+
+  def ioted
+    # TODO: error handling, notification, edge cases
+
+    day = Day.where(date: Time.now.to_s[0..9])
+
+    if day[0].minutes == nil
+      Day.update(day[0].id, minutes: 0)
+    else
+      practiced = ((Time.now - day[0].updated_at) / 60).round
+      Day.update(day[0].id, minutes: practiced)
+    end
+
+    redirect_to root_path
   end
 
 end

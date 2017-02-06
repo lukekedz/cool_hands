@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   root 'site#index'
   post 'site/practiced'
+
+  get  'site/iot'
+  post 'site/ioted'
 end
