@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   post 'site/practiced'
 
   get  'site/iot'
-  post 'site/ioted'
 end
