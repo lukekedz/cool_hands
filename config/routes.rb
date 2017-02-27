@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'site#index'
   post 'site/practiced'
 
+  # AWS IoT button
   get  'site/iot'
 end
