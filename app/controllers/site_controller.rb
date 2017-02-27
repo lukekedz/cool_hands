@@ -220,16 +220,15 @@ class SiteController < ApplicationController
       transparency = 0.9
     end
 
-    puts "TIME NOW: " + Time.now.to_s[0..9].inspect
-    puts "TIME DAY: " + day[0].date.inspect
-    puts "MINUTES: " + day[0].minutes.inspect
+    # puts "TIME NOW: " + Time.now.to_s[0..9].inspect
+    # puts "TIME DAY: " + day[0].date.inspect
+    # puts "MINUTES: " + day[0].minutes.inspect
 
     if day[0].minutes == nil
       Day.update(day[0].id, minutes: 0)
     else
       practiced = ((Time.now - day[0].updated_at) / 60).round
 
-      # TODO: need color code, saturation, etc.
       Day.update(day[0].id,
                   minutes:      practiced,
                   practiced:    1,
