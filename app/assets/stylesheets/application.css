@@ -98,7 +98,7 @@ html {
   height: 725px;
 
   background-color: #64B5F6;
-  text: #0066CC;
+  color: #0066CC;
   text-align: center;
   box-shadow: 0 0 5px 5px rgba(33,150,243, 0.2);
 }
@@ -134,7 +134,7 @@ html {
   display: block;
   width: 100%;
 
-  text: #0047A1;
+  color: #0047A1;
   text-align: center;
 }
 
