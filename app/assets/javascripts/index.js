@@ -1,5 +1,41 @@
 $(document).ready(function() {
 
+  // <a href="/?id=2">February</a>
+  $( "a" ).click(function(event) {
+    event.preventDefault();
+
+    var Link = $(this).attr("href");
+
+    var rows = 5;
+    var blox = 7;
+    for(var i=0; i < rows; i++){
+      console.log(i);
+
+      for(var j=0; j < blox; j++){
+        // console.log(j);
+
+        // var it = document.getElementById(i + "-" + j);
+        // console.log(it);
+
+          var it = "#" + i + "-" + j
+          // console.log(it);
+          $(it).addClass('animated rotateOutUpLeft');
+
+          setTimeout(function(){
+
+
+          }, 10000);
+      }
+    }
+
+    console.log(event);
+    setTimeout(function(){
+      window.location.href = Link;
+    }, 1000);
+  });
+
+
+
   // https://daneden.github.io/animate.css/
   var animations = [ "flip", "flipInX", "flipInY" ]
 

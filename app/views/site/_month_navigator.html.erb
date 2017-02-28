@@ -3,7 +3,7 @@
 
   <ul>
     <% @months.each do |m| %>
-      <li><%= link_to m.name, root_path(:id => m.id) %></li>
+      <li id="<%= m.id %>"><%= link_to m.name, root_path(:id => m.id) %></li>
     <% end %>
   </ul>
 </div>
