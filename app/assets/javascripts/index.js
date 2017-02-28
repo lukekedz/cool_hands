@@ -4,6 +4,11 @@ $(document).ready(function() {
   $( "a" ).click(function(event) {
     event.preventDefault();
 
+    var animations = [ "zoomOutDown" ]
+    // var animations = [ "rollOut" ]
+    // var animations = [ "flipOutX" ]
+    // var animations = [ "bounceOutDown" ]
+
     var Link = $(this).attr("href");
 
     var rows = 5;
@@ -19,7 +24,13 @@ $(document).ready(function() {
 
           var it = "#" + i + "-" + j
           // console.log(it);
-          $(it).addClass('animated rotateOutUpLeft');
+
+// could randomize effects and number of tiles pulled
+// could also pull only the blank tiles, or only the practiced tiles
+          var randoAni = "animated " + animations[Math.floor((Math.random() * 4))];
+            // $(id).addClass(randoAni);
+
+          $(it).addClass(randoAni);
 
           setTimeout(function(){
 
