@@ -22,6 +22,5 @@
               - minutes
               - streak
               - color
-              - transparency
               - text_color
               - updated_at

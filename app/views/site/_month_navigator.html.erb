@@ -1,4 +1,6 @@
 <div class="month-navigator">
+  <h4 class="sidebar-title">Navigate</h4>
+
   <ul>
     <% @months.each do |m| %>
       <li><%= link_to m.name, root_path(:id => m.id) %></li>
