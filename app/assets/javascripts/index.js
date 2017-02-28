@@ -1,51 +1,35 @@
 $(document).ready(function() {
 
-  // <a href="/?id=2">February</a>
-  $( "a" ).click(function(event) {
+  $("a").click(function(event) {
     event.preventDefault();
 
-    var animations = [ "zoomOutDown" ]
-    // var animations = [ "rollOut" ]
-    // var animations = [ "flipOutX" ]
-    // var animations = [ "bounceOutDown" ]
+    var link     = $(this).attr("href");
+    var randoAni = "animated zoomOutDown"
+    var i        = 0
+    var j        = 0
 
-    var Link = $(this).attr("href");
+    setInterval(function(){ 
+      var id = "#" + i + "-" + j;
 
-    var rows = 5;
-    var blox = 7;
-    for(var i=0; i < rows; i++){
-      console.log(i);
+      animate(id, randoAni);
 
-      for(var j=0; j < blox; j++){
-        // console.log(j);
+      if (j < 7) {
+        j ++
+      } else {
+        i ++
+        j = 0        
+      };
 
-        // var it = document.getElementById(i + "-" + j);
-        // console.log(it);
+    }, 20);
 
-          var it = "#" + i + "-" + j
-          // console.log(it);
-
-// could randomize effects and number of tiles pulled
-// could also pull only the blank tiles, or only the practiced tiles
-          var randoAni = "animated " + animations[Math.floor((Math.random() * 4))];
-            // $(id).addClass(randoAni);
-
-          $(it).addClass(randoAni);
-
-          setTimeout(function(){
-
-
-          }, 10000);
-      }
-    }
-
-    console.log(event);
     setTimeout(function(){
-      window.location.href = Link;
-    }, 1000);
+      window.location.href = link;
+    }, 1500);
   });
 
-
+  animate = function(id, randoAni) {
+    $(id).addClass(randoAni);
+  }
 
   // https://daneden.github.io/animate.css/
   var animations = [ "flip", "flipInX", "flipInY" ]
@@ -69,11 +53,11 @@ $(document).ready(function() {
           success: function(data){
             var randoAni = "animated " + animations[Math.floor((Math.random() * 3))];
             $(id).addClass(randoAni);
-            // $(id).addClass("animated zoomIn");
 
             day.style.backgroundColor = data.color;
-            practiced.innerHTML = "1";
-            minutes.innerHTML   = minsPracticed + " mins";
+            day.style.color           = data.text_color;
+            practiced.innerHTML       = "1";
+            minutes.innerHTML         = minsPracticed + " mins";
 
           }
       });
@@ -87,8 +71,9 @@ $(document).ready(function() {
             $(id).addClass("animated zoomIn");
 
             day.style.backgroundColor = "transparent";
-            practiced.innerHTML = "0";
-            minutes.innerHTML   = "";
+            day.style.color           = "black";
+            practiced.innerHTML       = "0";
+            minutes.innerHTML         = "";
 
           }
       });

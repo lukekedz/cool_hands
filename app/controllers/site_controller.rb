@@ -167,7 +167,7 @@ class SiteController < ApplicationController
                 )
     end
 
-    data = {:message => "POST practiced", :color => color}
+    data = {:message => "POST practiced", :color => color, :text_color => txt_color}
     render :json => data, :status => :ok
   end
 
