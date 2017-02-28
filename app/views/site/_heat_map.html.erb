@@ -1,12 +1,22 @@
 <h3 class="month-name"><%= @current_month.name %></h3>
 <br/>
 
+<div class="week">
+  <div class="day-names">SUN</div>
+  <div class="day-names">MON</div>
+  <div class="day-names">TUE</div>
+  <div class="day-names">WED</div>
+  <div class="day-names">THU</div>
+  <div class="day-names">FRI</div>
+  <div class="day-names">SAT</div>
+</div>
+
 <% @week_rows.times do |wk| %>
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
       <div class="day"
-           style="background-color: <%= day.color %>; opacity: <%= day.transparency %>;"
+           style="background-color: <%= day.color %>; color: <%= day.text_color %>"
            id="<%= wk.to_s + '-' + day.block.to_s %>"
            onclick="<% if day.clickable %>
                     <%= 'practiced(event,' + day.id.to_s + ')' %>

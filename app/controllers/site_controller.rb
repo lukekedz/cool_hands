@@ -126,22 +126,11 @@ class SiteController < ApplicationController
   end
 
   def practiced
-    # blue
-    saturation = [ "", "#e6e6ff", "#ccccff", "#b3b3ff", "#9999ff", "#8080ff", "#6666ff", "#4d4dff", "#3333ff", "#1a1aff", "#0000ff", "#0000e6" ]
-
-    # yel-org-red hash
-    # "#0066cc" rgba(0, 102, 204)
-    # saturation = [ "", {"yellow" => 0.2}, {"yellow" => 0.4}, {"yellow" => 0.6}, {"yellow" => 0.8}, {"yellow" => 0.9},
-                       # {"orange" => 0.2}, {"orange" => 0.4}, {"orange" => 0.6}, {"orange" => 0.8}, {"orange" => 0.9},
-                       # {"red" => 0.2}, {"red" => 0.4}, {"red" => 0.6}, {"red" => 0.8}, {"red" => 0.9} ]
-
     if params[:practiced] == "1"
-      # blue
-      color = saturation[1]
-
-      # yel-org-red hash
-      # color = (saturation[1].keys)[0].to_s
-      # transparency = saturation[1][color]
+      # defaults
+      color     = heat_color(1)
+      txt_color = heat_color(10)
+      streak    = 1
 
       # picks up streak where last left,
       # ie it will ignore empty blocks from a new month start / old month finish
@@ -152,23 +141,12 @@ class SiteController < ApplicationController
         i += 1
       end
 
-      streak = 1
       if prev_day[0].streak != nil
         streak = prev_day[0].streak.to_i + 1
+        streak = streak > 10 ? 10 : streak
 
-        # blue
-        if streak >= 11
-          streak = 11
-        end
-        color = saturation[streak]
-        transparency = 0.9
-
-        # yel-org-red hash
-        # if streak >= 15
-          # streak = 15
-        # end
-        # color = (saturation[streak].keys)[0].to_s
-        # transparency = saturation[streak][color]
+        color     = heat_color(streak)
+        txt_color = heat_color(11 - streak)
       end
 
       Day.update(params[:day_id],
@@ -176,7 +154,7 @@ class SiteController < ApplicationController
                   streak:       streak,
                   minutes:      params[:minutes],
                   color:        color,
-                  transparency: transparency
+                  text_color:   txt_color
                 )
     else
       # TODO: recalculate streak if somehow broken
@@ -185,7 +163,7 @@ class SiteController < ApplicationController
                   streak:       nil,
                   minutes:      nil,
                   color:        "transparent",
-                  transparency: nil
+                  text_color:   "black"
                 )
     end
 
@@ -197,8 +175,10 @@ class SiteController < ApplicationController
     # TODO: error handling, notification, edge cases
     day = Day.where(date: Time.now.to_s[0..9])
 
-    saturation = [ "", "#e6e6ff", "#ccccff", "#b3b3ff", "#9999ff", "#8080ff", "#6666ff", "#4d4dff", "#3333ff", "#1a1aff", "#0000ff", "#0000e6" ]
-    color = saturation[1]
+    # defaults
+    color     = heat_color(1)
+    txt_color = heat_color(10)
+    streak    = 1
 
     prev_day = []
     i = 1
@@ -207,22 +187,13 @@ class SiteController < ApplicationController
       i += 1
     end
 
-    streak = 1
     if prev_day[0].streak != nil
       streak = prev_day[0].streak.to_i + 1
+      streak = streak > 10 ? 10 : streak
 
-      # blue
-      if streak >= 11
-        streak = 11
-      end
-
-      color = saturation[streak]
-      transparency = 0.9
+      color     = heat_color(streak)
+      txt_color = heat_color(11 - streak)
     end
-
-    # puts "TIME NOW: " + Time.now.to_s[0..9].inspect
-    # puts "TIME DAY: " + day[0].date.inspect
-    # puts "MINUTES: " + day[0].minutes.inspect
 
     if day[0].minutes == nil
       Day.update(day[0].id, minutes: 0)
@@ -234,11 +205,17 @@ class SiteController < ApplicationController
                   practiced:    1,
                   streak:       streak,
                   color:        color,
-                  transparency: transparency
+                  text_color:   txt_color
                 )
     end
 
     redirect_to root_path
+  end
+
+  def heat_color(streak)
+    colors = [ "", "#E3F2FD", "#B8DEFB", "#90CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#1976D2", "#1565C0", "#0047A1" ]
+
+    colors[streak]
   end
 
 end
