@@ -34,8 +34,13 @@ html {
   width: 80%;
   height: 725px;
 
-  box-shadow: 0 0 5px 10px rgba(100,181,246, 0.2);
   background-color: #F9F9F9;
+
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 2.5px #888888;
 }
 
 .month-name {
@@ -100,7 +105,12 @@ html {
   background-color: #64B5F6;
   color: #0066CC;
   text-align: center;
-  box-shadow: 0 0 5px 5px rgba(33,150,243, 0.2);
+
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 2.5px #888888;
 }
 
 .practice-hours, .month-navigator {
