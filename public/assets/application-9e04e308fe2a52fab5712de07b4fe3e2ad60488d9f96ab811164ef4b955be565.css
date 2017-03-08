@@ -2,6 +2,7 @@
 /* https://www.elegantthemes.com/blog/resources/6-color-matching-techniques-for-wordpress-web-designers */
 /* blue */
 
+
 html {
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;
@@ -161,6 +162,5 @@ html {
 }
 
 .sia {
-  height: 50px;
-  width: 50px;
+
 }
