@@ -3,21 +3,20 @@ $(document).ready(function() {
   $("a").click(function(event) {
     event.preventDefault();
 
-    var link     = $(this).attr("href");
-    var randoAni = "animated zoomOutDown"
-    var i        = 0
-    var j        = 0
+    var link = $(this).attr("href");
+    var i    = 0
+    var j    = 0
 
-    setInterval(function(){ 
+    setInterval(function(){
       var id = "#" + i + "-" + j;
 
-      animate(id, randoAni);
+      $(id).addClass("animated flip");
 
       if (j < 7) {
         j ++
       } else {
         i ++
-        j = 0        
+        j = 0
       };
 
     }, 20);
@@ -26,10 +25,6 @@ $(document).ready(function() {
       window.location.href = link;
     }, 1500);
   });
-
-  animate = function(id, randoAni) {
-    $(id).addClass(randoAni);
-  }
 
   // https://daneden.github.io/animate.css/
   var animations = [ "flip", "flipInX", "flipInY" ]
