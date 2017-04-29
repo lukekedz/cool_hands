@@ -1,0 +1,166 @@
+/* overall color scheme */
+/* https://www.elegantthemes.com/blog/resources/6-color-matching-techniques-for-wordpress-web-designers */
+/* blue */
+
+
+html {
+  font-family: 'Roboto Mono', monospace;
+  overflow: hidden;
+}
+
+/* http://www.w3schools.com/css/css3_gradients.asp */
+html {
+  background: rgba(144,202,249, 1.0);
+  background: -webkit-linear-gradient(-90deg, rgba(144,202,249, 1.0), rgba(144,202,249, 0.8), rgba(144,202,249, 0.6), rgba(144,202,249, 0.4), rgba(144,202,249, 0.2));
+  background: -o-linear-gradient(-90deg,      rgba(144,202,249, 1.0), rgba(144,202,249, 0.8), rgba(144,202,249, 0.6), rgba(144,202,249, 0.4), rgba(144,202,249, 0.2));
+  background: -moz-linear-gradient(-90deg,    rgba(144,202,249, 1.0), rgba(144,202,249, 0.8), rgba(144,202,249, 0.6), rgba(144,202,249, 0.4), rgba(144,202,249, 0.2));
+  background: linear-gradient(-90deg,         rgba(144,202,249, 1.0), rgba(144,202,249, 0.8), rgba(144,202,249, 0.6), rgba(144,202,249, 0.4), rgba(144,202,249, 0.2));
+}
+
+.container {
+  display: block;
+  width: 90%;
+  margin: auto;
+  height: 750px;
+
+  top: 5%;
+  right: 0;
+  bottom: 5%;
+  left: 0;
+}
+
+.heat-map {
+  display: inline-block;
+  float: left;
+  width: 80%;
+  height: 825px;
+
+  background-color: #F9F9F9;
+
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 2.5px #888888;
+}
+
+.month-name {
+  text-indent: 2.5%;
+}
+
+.week {
+  margin-left: 5%;
+}
+
+/* http://www.cssmatic.com/es/border-radius */
+.day-names {
+  display: inline-block;
+  width: 12.25%;
+  height: 10px;
+  margin-right: 4px;
+  margin-bottom: 15px;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+/* http://www.cssmatic.com/es/border-radius */
+.day {
+  display: inline-block;
+  width: 12.25%;
+  height: 100px;
+  margin-right: 1px;
+  margin-bottom: 15px;
+
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 2.5px #888888;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+.date {
+  float: right;
+  margin-right: 15%;
+  margin-top: 10%;
+
+  font-weight: bold;
+}
+
+.minutes {
+  font-style: italic;
+  margin-top: 50%;
+}
+
+/* SIDE BAR */
+.side-bar {
+  display: inline-block;
+  float: right;
+  width: 17.5%;
+  /*height: 725px;*/
+  height: 825px;
+
+  background-color: #64B5F6;
+  color: #0066CC;
+  text-align: center;
+
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 2.5px #888888;
+}
+
+.practice-hours, .month-navigator {
+  display: block;
+  width: 100%;
+  color: white;
+}
+
+.month-navigator {
+  height: 300px;
+}
+
+.sidebar-title {
+  text-indent: 2.5%;
+  color: black;
+}
+
+.side-bar a:link, .side-bar a:visited, .side-bar a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.side-bar a:hover {
+  text-decoration: underline;
+}
+
+.side-bar ul {
+  list-style-type: none;
+  padding: 1%;
+}
+
+/* FOOTER */
+.side-footer {
+  /*position: relative;*/
+  /*bottom: 60px;*/
+  color: #0047A1;
+  text-align: center;
+}
+
+.side-footer a:link, .side-footer a:visited, .side-footer a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.side-footer a:hover {
+  text-decoration: underline;
+}
+
+.sia {
+  height: 50px;
+  width: 50px;
+}
