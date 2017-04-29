@@ -20,7 +20,7 @@ class SiteController < ApplicationController
 
     @days      = Day.where(month_id: @current_month.id).order(:id)
     @months    = Month.all.reverse
-    @week_rows = @days.last.row
+    # @week_rows = @days.last.row + 1
     @mms       = monthly_minutes(@current_month.id)
     @hrs       = total_hrs_practiced()
   end

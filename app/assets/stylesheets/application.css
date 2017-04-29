@@ -32,7 +32,7 @@ html {
   display: inline-block;
   float: left;
   width: 80%;
-  height: 725px;
+  height: 825px;
 
   background-color: #F9F9F9;
 
@@ -94,13 +94,13 @@ html {
   margin-top: 50%;
 }
 
-
 /* SIDE BAR */
 .side-bar {
   display: inline-block;
   float: right;
   width: 17.5%;
-  height: 725px;
+  /*height: 725px;*/
+  height: 825px;
 
   background-color: #64B5F6;
   color: #0066CC;
@@ -144,9 +144,8 @@ html {
 
 /* FOOTER */
 .side-footer {
-  position: relative;
-  bottom: 1%;
-  bottom: 5px;
+  /*position: relative;*/
+  /*bottom: 60px;*/
   color: #0047A1;
   text-align: center;
 }

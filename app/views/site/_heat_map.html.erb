@@ -11,7 +11,7 @@
   <div class="day-names">SAT</div>
 </div>
 
-<% @week_rows.times do |wk| %>
+<% 6.times do |wk| %>
   <div class="week">
 
     <% @days.where(row: wk).each do |day| %>
