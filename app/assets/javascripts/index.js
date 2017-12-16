@@ -6,33 +6,28 @@ $(document).ready(function() {
     if (link != 'http://www.lukekedz.com/about') {
       event.preventDefault(); 
 
-      var randoAni = "animated zoomOutDown"
-      var i        = 0
-      var j        = 0
+      var i    = 0
+      var j    = 0
 
-      setInterval(function(){ 
+      setInterval(function(){
         var id = "#" + i + "-" + j;
 
-        animate(id, randoAni);
+        $(id).addClass("animated flip");
 
-        if (j < 7) {
-          j ++
-        } else {
-          i ++
-          j = 0        
-        };
+          if (j < 7) {
+            j ++
+          } else {
+            i ++
+            j = 0        
+          };
 
-      }, 20);
+        }, 20);
 
-      setTimeout(function(){
-        window.location.href = link;
+        setTimeout(function(){
+          window.location.href = link;
       }, 1500);
     };
   });
-
-  animate = function(id, randoAni) {
-    $(id).addClass(randoAni);
-  }
 
   // https://daneden.github.io/animate.css/
   var animations = [ "flip", "flipInX", "flipInY" ]

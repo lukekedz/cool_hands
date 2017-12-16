@@ -2,10 +2,10 @@
 /* https://www.elegantthemes.com/blog/resources/6-color-matching-techniques-for-wordpress-web-designers */
 /* blue */
 
+
 html {
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;
-  /*zoom: 75%; */
 }
 
 /* http://www.w3schools.com/css/css3_gradients.asp */
@@ -44,33 +44,6 @@ html {
   box-shadow: 5px 5px 2.5px #888888;
 }
 
-/*.year-heat-map {
-  display: block;
-  float: left;
-
-  margin-top: 2.5%;
-  width: 80%;
-  height: 185px;
-
-  background-color: #F9F9F9;
-
-  border-radius: 25px 25px 25px 25px;
-  -moz-border-radius: 25px 25px 25px 25px;
-  -webkit-border-radius: 25px 25px 25px 25px;
-  border: 1px solid white;
-  box-shadow: 5px 5px 2.5px #888888;
-}*/
-
-.year-heat-map div {
-  margin-left: 5px;
-
-  display: inline-block;
-  border: 1px red solid;
-  position: relative;
-  width: 7%;
-  height: ;
-}
-
 .month-name {
   text-indent: 2.5%;
 }
@@ -107,8 +80,6 @@ html {
 
   text-align: center;
   vertical-align: top;
-
-  position: relative;
 }
 
 .date {
@@ -121,11 +92,7 @@ html {
 
 .minutes {
   font-style: italic;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-left: 17.5px;
-  margin-bottom: 10px; 
+  margin-top: 50%;
 }
 
 /* SIDE BAR */
@@ -133,6 +100,7 @@ html {
   display: inline-block;
   float: right;
   width: 17.5%;
+  /*height: 725px;*/
   height: 825px;
 
   background-color: #64B5F6;
@@ -153,48 +121,12 @@ html {
 }
 
 .month-navigator {
-  height: 425px;
-}
-
-.m-nav-list-li {
-  display: block;
-  font-size: 14px;
-  text-align: left;
-}
-
-.mnth-nav-yr {
-  display: block;
-  font-size: 14px;
-  text-align: left;
-  margin-left: 2.5%;
-  margin-bottom: 5px;
-  color: black;
-}
-
-.mnth-nav-left {
-  display: inline-block;
-  width: 35%;
-  margin-left: 5%;
-  white-space: normal;
-  /*border: 1px red solid;*/
-}
-
-.mnth-nav-right {
-  display: inline-block;
-  width: 45%;
-  margin-left: 2.5%;
-  white-space: normal;
-  /*border: 1px green solid;*/
+  height: 300px;
 }
 
 .sidebar-title {
-  text-indent: 1%;
+  text-indent: 2.5%;
   color: black;
-  margin-bottom: 5px;
-}
-
-#sidebar-title-navigate {
-  margin-bottom: -10px;
 }
 
 .side-bar a:link, .side-bar a:visited, .side-bar a:hover {
