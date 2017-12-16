@@ -25,6 +25,15 @@ class SiteController < ApplicationController
 
     @monthly_practice_minutes = @months.map { |m| ((Day.where(month_id: m.id).sum(:minutes).to_f) / 60).round(2) }
     @mms = Day.where(month_id: @current_month.id).sum(:minutes)
+
+    # yearly heat map = yhm
+    @yhm_iterator = 0
+    @yhm = []
+    Month.last(12).each do |m|
+      Day.where(month_id: m, clickable: true).order(:id).each do |d|
+        @yhm.push d.color
+      end
+    end
   end
 
   def total_hrs_practiced

@@ -11,3 +11,24 @@
   <br/>
   <%= render "side_footer" %>
 </div>
+
+<div class="year-heat-map">
+  <div class="yhm-inner-wrap">
+    <% 52.times do %>
+      <div class="yhm-week">
+        <% 7.times do %>
+          <% if @yhm[@yhm_iterator] == 'transparent' %>
+            <div class="yhm-grey-sq"></div>
+          <% else %>
+            <div 
+              class="yhm-practiced-sq"
+              style="background-color: <%= @yhm[@yhm_iterator] %>"
+            >  
+            </div>
+          <% end %>
+          <% @yhm_iterator += 1 %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
