@@ -5,10 +5,6 @@
 <div class="side-bar">
   <%= render "practice_hours" %>
   <%= render "month_navigator" %>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
   <%= render "side_footer" %>
 </div>
 
@@ -17,12 +13,12 @@
     <% 52.times do %>
       <div class="yhm-week">
         <% 7.times do %>
-          <% if @yhm[@yhm_iterator] == 'transparent' %>
+          <% if @yhm[@yhm_iterator].color == 'transparent' %>
             <div class="yhm-grey-sq"></div>
           <% else %>
             <div 
               class="yhm-practiced-sq"
-              style="background-color: <%= @yhm[@yhm_iterator] %>"
+              style="background-color: <%= @yhm[@yhm_iterator].color %>"
             >  
             </div>
           <% end %>

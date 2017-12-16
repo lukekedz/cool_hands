@@ -31,7 +31,7 @@ class SiteController < ApplicationController
     @yhm = []
     Month.last(12).each do |m|
       Day.where(month_id: m, clickable: true).order(:id).each do |d|
-        @yhm.push d.color
+        @yhm.push d
       end
     end
   end
