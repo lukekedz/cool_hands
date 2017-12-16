@@ -1,30 +1,33 @@
 $(document).ready(function() {
 
   $("a").click(function(event) {
-    event.preventDefault();
+    var link = $(this).attr("href");
 
-    var link     = $(this).attr("href");
-    var randoAni = "animated zoomOutDown"
-    var i        = 0
-    var j        = 0
+    if (link != 'http://www.lukekedz.com/about') {
+      event.preventDefault(); 
 
-    setInterval(function(){ 
-      var id = "#" + i + "-" + j;
+      var randoAni = "animated zoomOutDown"
+      var i        = 0
+      var j        = 0
 
-      animate(id, randoAni);
+      setInterval(function(){ 
+        var id = "#" + i + "-" + j;
 
-      if (j < 7) {
-        j ++
-      } else {
-        i ++
-        j = 0        
-      };
+        animate(id, randoAni);
 
-    }, 20);
+        if (j < 7) {
+          j ++
+        } else {
+          i ++
+          j = 0        
+        };
 
-    setTimeout(function(){
-      window.location.href = link;
-    }, 1500);
+      }, 20);
+
+      setTimeout(function(){
+        window.location.href = link;
+      }, 1500);
+    };
   });
 
   animate = function(id, randoAni) {
