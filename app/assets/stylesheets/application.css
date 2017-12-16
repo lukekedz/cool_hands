@@ -123,8 +123,30 @@ html {
   height: 300px;
 }
 
+.m-nav-list-li {
+  display: block;
+  font-size: 14px;
+  text-align: left;
+}
+
+.m-nth-nav-left {
+  display: inline-block;
+  width: 30%;
+  margin-left: 2.5%;
+  white-space: normal;
+  /*border: 1px red solid;*/
+}
+
+.m-nth-nav-right {
+  display: inline-block;
+  width: 45%;
+  margin-left: 2.5%;
+  white-space: normal;
+  /*border: 1px green solid;*/
+}
+
 .sidebar-title {
-  text-indent: 2.5%;
+  text-indent: 1%;
   color: black;
 }
 

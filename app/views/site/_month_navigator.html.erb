@@ -2,8 +2,21 @@
   <h4 class="sidebar-title">Navigate</h4>
 
   <ul>
-    <% @months.each do |m| %>
-      <li id="<%= m.id %>"><%= link_to m.name, root_path(:id => m.id) %></li>
+    <% @months.each_with_index do |m, index| %>
+      <li class="m-nav-list-li" id="<%= m.id %>">
+        <div class="m-nth-nav-left">
+          <%= 
+            link_to m.name, 
+            root_path(:id => m.id)
+          %>
+        </div>
+        <div class="m-nth-nav-right">
+          <%= 
+            link_to '(' + '%.2f' % @monthly_practice_minutes[index].to_s +  ' hrs)', 
+            root_path(:id => m.id)
+          %>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>

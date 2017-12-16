@@ -17,6 +17,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'hirb'
 gem 'pg'
+gem 'rb-readline'
 
 group :development, :test do
   gem 'spring'

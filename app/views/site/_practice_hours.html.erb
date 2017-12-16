@@ -1,13 +1,16 @@
 <div class="practice-hours">
-  <h4 class="sidebar-title"><%= @current_month.name %> Summary</h4>
-  Practiced: <%= @mms %> mins
+  <h4 class="sidebar-title">
+    <%= @current_month.name %>
+    <%= @current_month.yyyymm[0..3] %> 
+  </h4>
+  <%= @mms %> Session Minutes
   <br>
   (<%= (@mms.to_i / 60).round(2) %> hrs)
   <br>
   <br>
 
-  <h4 class="sidebar-title">2017 Goal</h4>
+<!--   <h4 class="sidebar-title">2017 Goal</h4>
   &nbsp;&nbsp;Practice: 200 hrs
   <br>
-  Remaining: <%= 200 - @hrs %> hrs
+  Remaining: <%= 200 - @hrs %> hrs -->
 </div>
