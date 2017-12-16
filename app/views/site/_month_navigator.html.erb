@@ -1,16 +1,20 @@
 <div class="month-navigator">
-  <h4 class="sidebar-title">Navigate</h4>
+  <h4 class="sidebar-title" id="sidebar-title-navigate">Navigate</h4>
 
   <ul>
     <% @months.each_with_index do |m, index| %>
+      <% if index % 12 == 0 %>
+        <li class="mnth-nav-yr"><%= m.yyyymm[0..3] %></li>
+      <% end %>
+
       <li class="m-nav-list-li" id="<%= m.id %>">
-        <div class="m-nth-nav-left">
+        <div class="mnth-nav-left">
           <%= 
             link_to m.name, 
             root_path(:id => m.id)
           %>
         </div>
-        <div class="m-nth-nav-right">
+        <div class="mnth-nav-right">
           <%= 
             link_to '(' + '%.2f' % @monthly_practice_minutes[index].to_s +  ' hrs)', 
             root_path(:id => m.id)

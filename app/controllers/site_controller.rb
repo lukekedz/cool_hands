@@ -21,7 +21,7 @@ class SiteController < ApplicationController
     @days      = Day.where(month_id: @current_month.id).order(:id)
     @week_rows = @days.last.row
     @hrs       = total_hrs_practiced()
-    @months    = Month.last(12).reverse
+    @months    = Month.all.reverse
 
     @monthly_practice_minutes = @months.map { |m| ((Day.where(month_id: m.id).sum(:minutes).to_f) / 60).round(2) }
     @mms = Day.where(month_id: @current_month.id).sum(:minutes)

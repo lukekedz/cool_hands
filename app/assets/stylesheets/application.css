@@ -5,6 +5,7 @@
 html {
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;
+  zoom: 80%; 
 }
 
 /* http://www.w3schools.com/css/css3_gradients.asp */
@@ -129,15 +130,24 @@ html {
   text-align: left;
 }
 
-.m-nth-nav-left {
-  display: inline-block;
-  width: 30%;
+.mnth-nav-yr {
+  display: block;
+  font-size: 14px;
+  text-align: left;
   margin-left: 2.5%;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.mnth-nav-left {
+  display: inline-block;
+  width: 35%;
+  margin-left: 5%;
   white-space: normal;
   /*border: 1px red solid;*/
 }
 
-.m-nth-nav-right {
+.mnth-nav-right {
   display: inline-block;
   width: 45%;
   margin-left: 2.5%;
@@ -148,6 +158,11 @@ html {
 .sidebar-title {
   text-indent: 1%;
   color: black;
+  margin-bottom: 5px;
+}
+
+#sidebar-title-navigate {
+  margin-bottom: -10px;
 }
 
 .side-bar a:link, .side-bar a:visited, .side-bar a:hover {
