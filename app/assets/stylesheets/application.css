@@ -80,6 +80,8 @@ html {
 
   text-align: center;
   vertical-align: top;
+
+  position: relative;
 }
 
 .date {
@@ -92,7 +94,11 @@ html {
 
 .minutes {
   font-style: italic;
-  margin-top: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 17.5px;
+  margin-bottom: 10px; 
 }
 
 
