@@ -24,7 +24,6 @@ class SiteController < ApplicationController
     @months = Month.all.reverse
     @hrs    = total_hrs_practiced()
     @months = Month.all.reverse
-    @git    = Git.open('./')
 
     @monthly_practice_minutes = @months.map { |m| ((Day.where(month_id: m.id).sum(:minutes).to_f) / 60).round(2) }
     @mms = Day.where(month_id: @current_month.id).sum(:minutes)
