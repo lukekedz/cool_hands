@@ -4,5 +4,7 @@
     <% if current_user %>
         <div><strong>sia</strong></div>
     <% end %>
+
+    <div>v<%= @git.tags.last.name[-3..-1] %></div>
   </a>
 </div>
