@@ -19,6 +19,7 @@ gem 'hirb'
 gem 'pg'
 gem 'rb-readline'
 gem 'git'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'spring'
