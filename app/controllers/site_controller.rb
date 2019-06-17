@@ -3,23 +3,22 @@ class SiteController < ApplicationController
   before_action :authenticate_user!, only: [:practiced]
 
   def index
-    if first_of_the_month?
-      time = Time.new
-      month_length = Date.new(Time.new.year, Time.new.month, -1).day
+    # if first_of_the_month?
+    #   time = Time.new
+    #   month_length = Date.new(Time.new.year, Time.new.month, -1).day
 
-      new_yr = time.year.to_s
-      new_mm = time.month.to_s.length < 2 ? "0" + time.month.to_s : time.month.to_s
-      yyyymm = new_yr + new_mm
+    #   new_yr = time.year.to_s
+    #   new_mm = time.month.to_s.length < 2 ? "0" + time.month.to_s : time.month.to_s
+    #   yyyymm = new_yr + new_mm
 
-      Month.create(name: time.strftime("%B"), length: month_length, yyyymm: yyyymm)
+    #   Month.create(name: time.strftime("%B"), length: month_length, yyyymm: yyyymm)
 
-      populate_new_month(month_length)
-    end
+    #   populate_new_month(month_length)
+    # end
 
     @current_month = params[:id] ? Month.find(params[:id]) : Month.last
 
     @days   = Day.where(month_id: @current_month.id).order(:id)
-    @months = Month.all.reverse
     @hrs    = total_hrs_practiced()
     @months = Month.all.reverse
 

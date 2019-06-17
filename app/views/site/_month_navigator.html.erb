@@ -3,6 +3,11 @@
 
   <ul>
     <% @months.each_with_index do |m, index| %>
+      <% if index == 0 %>
+        <li>&nbsp;</li>
+        <li class="mnth-nav-yr">2018</li>
+      <% end %>
+
       <% if m.id % 12 == 0 %>
         <li>&nbsp;</li>
         <li class="mnth-nav-yr"><%= m.yyyymm[0..3] %></li>
